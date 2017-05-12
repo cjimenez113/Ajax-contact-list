@@ -15,14 +15,13 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/contacts')
-     .then(resp => {
-       this.setState({
-         searchText: this.state.searchText,
-         contacts: resp.data
-       });
-     })
-     .catch(err => console.log(`Error! ${err}`));
+    axios.get('/contacts')
+    .then(resp => {
+      this.setState({
+        contacts: resp.data
+      });
+    })
+    .catch(err => console.error(`Error! ${err}`));
   }
   handleSearchBarChange(event) {
     this.setState({
